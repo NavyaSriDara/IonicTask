@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>
+      To-do List
+
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="d-flex align-items-center w-50 mx-auto header-blk position-relative">
+    <ion-item class="w-100">
+      <ion-input #taskInput type="text" [(ngModel)]="taskName" placeholder="Enter task"></ion-input>
+    </ion-item>
+    <div class="item-note" item-end >
+      <button ion-button color='secondary' (click)="addTask()" class="p-0">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </div>
+  </div>
+  <div padding>
+    <ion-list>
+      <ion-item *ngFor="let todo of fireStoreTaskList  let i = index " (change)='onChange($event)'>
+        <div>
+        <input type='checkbox'  class='checkboxChecked'  />
+        <span class='span'>
+          {{todo.task}}
+        </span>&nbsp;
+        <span class="item-note" item-end class='checkbox'>
+          <button ion-button clear color='danger' (click)="deleteTask(todo.id)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </span>
+      </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

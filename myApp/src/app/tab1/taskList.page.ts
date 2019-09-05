@@ -4,13 +4,13 @@ import { IAppState } from '../reducers';
 import { TaskActions } from '../actions/taskAction';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-taskList',
+  templateUrl: 'taskList.page.html',
+  styleUrls: ['taskList.page.scss']
 })
-export class Tab1Page {
+export class TaskList {
   private taskName: string;
-  private fireStoreTaskList: Array<any>
+  public fireStoreTaskList: Array<any>
   @ViewChild('taskInput', {
     read: {},
     static: true
@@ -45,5 +45,15 @@ export class Tab1Page {
   markAsComplete(id: any) {
     this.store.dispatch(this.taskActs.markTaskAsCompleted(id));
 
+  }
+  onChange(e): void {
+    console.log(e.target, 'eventtt')
+    if (e.target.checked) {
+      console.log(e)
+      e.path[7].classList.add('styleCheck')
+    }else{
+      e.path[7].classList.remove('styleCheck')
+
+    }
   }
 }

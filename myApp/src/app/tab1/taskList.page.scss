@@ -1,0 +1,49 @@
+ion-content{
+  .header-blk{
+    ion-item{
+      font-size: 25px;
+      ion-input input{
+        --placeholder-color: red !important;
+      }
+    }
+    .checkbox{
+      margin-right:20px !important;
+    }
+    .checkboxChecked{
+      margin-right:20px !important;
+      font-size: 20px
+
+    }
+   
+    input[type = checkbox]:checked{
+      --placeholder-color: red !important;
+      --background-color:red !important;
+    }
+    .item-note{
+      button{
+        background-color: white;
+        border: 3px solid gray;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+        padding: 5px !important;
+      }
+    }
+    .sc-ion-input-md-h,.sc-ion-input-ios-h{
+      --placeholder-color: gray !important;
+      opacity: 0.5;
+      width:100% !important;
+    }
+    input[type=checkbox]:checked + span {
+     text-decoration: line-through !important;
+     pointer-events: none !important;
+    } 
+  }
+  
+}
+.styleCheck{
+  text-decoration: line-through;
+  pointer-events: none;
+}
